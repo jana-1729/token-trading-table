@@ -11,7 +11,14 @@ const TooltipContext = React.createContext<TooltipContextValue>({
   setOpen: () => {},
 });
 
-export function TooltipProvider({ children }: { children: React.ReactNode }) {
+interface TooltipProviderProps {
+  children: React.ReactNode;
+  delayDuration?: number;
+}
+
+export function TooltipProvider({ children, delayDuration = 300 }: TooltipProviderProps) {
+  // delayDuration is accepted but not used in this simple implementation
+  // You can implement delay logic if needed
   return <>{children}</>;
 }
 

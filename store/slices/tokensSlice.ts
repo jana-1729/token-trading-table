@@ -37,7 +37,7 @@ const tokensSlice = createSlice({
         token.change24h = action.payload.change24h;
       }
     },
-    setSortState: (state, action: PayloadAction<{ field: SortField; direction: SortDirection }>) => {
+    setSortState: (state, action: PayloadAction<{ field: SortField | null; direction: SortDirection }>) => {
       state.sortState = action.payload;
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
