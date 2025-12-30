@@ -8,6 +8,7 @@ import { useWebSocket } from "@/hooks/useWebSocket";
 import { useAppDispatch } from "@/store/hooks";
 import { setTokens, setLoading, setError } from "@/store/slices/tokensSlice";
 import { Activity } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function TokenDiscovery() {
   const dispatch = useAppDispatch();
@@ -39,17 +40,20 @@ export function TokenDiscovery() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-[1600px]">
           {/* Header */}
           <header className="mb-8 sm:mb-10 lg:mb-12">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 rounded-lg bg-foreground/5 ring-1 ring-foreground/10">
-                <Activity className="w-6 h-6 sm:w-7 sm:h-7 text-foreground" />
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-foreground/5 ring-1 ring-foreground/10">
+                  <Activity className="w-6 h-6 sm:w-7 sm:h-7 text-foreground" />
+                </div>
+                <div>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
+                    Token Discovery
+                  </h1>
+                </div>
               </div>
-              <div>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
-                  Token Discovery
-                </h1>
-              </div>
+              <ThemeToggle />
             </div>
-            <p className="text-muted-foreground text-sm sm:text-base ml-[52px]">
+            <p className="text-muted-foreground text-sm sm:text-base ml-0 sm:ml-[52px]">
               Real-time token trading data with live price updates
             </p>
           </header>
