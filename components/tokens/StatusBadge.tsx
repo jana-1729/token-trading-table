@@ -24,7 +24,14 @@ const statusConfig = {
 export const StatusBadge = React.memo(({ status }: StatusBadgeProps) => {
   const config = statusConfig[status];
 
-  return <Badge variant={config.variant}>{config.label}</Badge>;
+  return (
+    <Badge 
+      variant={config.variant} 
+      className="text-[8px] sm:text-[9px] md:text-[10px] px-1.5 sm:px-2 py-0 sm:py-0.5 font-bold leading-tight whitespace-nowrap"
+    >
+      {config.label}
+    </Badge>
+  );
 });
 
 StatusBadge.displayName = "StatusBadge";

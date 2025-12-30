@@ -145,16 +145,20 @@ export const TokenTable = React.memo(() => {
 
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 space-y-4">
-        <AlertCircle className="w-12 h-12 text-destructive" />
-        <p className="text-lg font-semibold">Error loading tokens</p>
-        <p className="text-sm text-muted-foreground">{error}</p>
+      <div className="flex flex-col items-center justify-center py-16 sm:py-20 space-y-4 rounded-xl border border-destructive/20 bg-destructive/5">
+        <div className="p-3 rounded-full bg-destructive/10">
+          <AlertCircle className="w-10 h-10 sm:w-12 sm:h-12 text-destructive" />
+        </div>
+        <div className="text-center space-y-2">
+          <p className="text-lg sm:text-xl font-semibold">Error loading tokens</p>
+          <p className="text-sm text-muted-foreground max-w-md">{error}</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 sm:space-y-8">
       {/* Filters */}
       <TokenFilters
         searchQuery={filters.searchQuery}
@@ -163,25 +167,30 @@ export const TokenTable = React.memo(() => {
         onStatusFilterChange={(status) => dispatch(setStatusFilter(status))}
       />
 
-      {/* Table */}
-      <div className="space-y-1">
+      {/* Table Container */}
+      <div className="rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm overflow-hidden shadow-xl shadow-black/5">
         <TokenTableHeader
           sortField={sortState.field}
           sortDirection={sortState.direction}
           onSort={handleSort}
         />
 
-        {loading ? (
-          <TokenTableSkeleton rows={10} />
-        ) : sortedTokens.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-12 space-y-2">
-            <p className="text-lg font-semibold">No tokens found</p>
-            <p className="text-sm text-muted-foreground">
-              Try adjusting your filters
-            </p>
-          </div>
-        ) : (
-          <div className="space-y-2">
+        <div className="p-3 sm:p-4 space-y-3">
+          {loading ? (
+            <TokenTableSkeleton rows={10} />
+          ) : sortedTokens.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-16 sm:py-20 space-y-3">
+              <div className="p-3 rounded-full bg-muted/50">
+                <AlertCircle className="w-10 h-10 text-muted-foreground" />
+              </div>
+              <div className="text-center space-y-1">
+                <p className="text-base sm:text-lg font-semibold">No tokens found</p>
+                <p className="text-sm text-muted-foreground">
+                  Try adjusting your filters or search query
+                </p>
+              </div>
+            </div>
+          ) : (
             <AnimatePresence mode="popLayout">
               {sortedTokens.map((token) => (
                 <TokenTableRow
@@ -192,8 +201,8 @@ export const TokenTable = React.memo(() => {
                 />
               ))}
             </AnimatePresence>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* Details Dialog */}

@@ -41,13 +41,13 @@ const HeaderCell = React.memo(
         size="sm"
         onClick={() => onSort(field)}
         className={cn(
-          "h-auto p-2 hover:bg-accent font-semibold",
-          isActive && "text-primary",
+          "h-auto p-1 sm:p-1.5 md:p-2 hover:bg-accent/50 font-semibold text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider transition-all",
+          isActive && "text-primary bg-primary/5",
           className
         )}
       >
-        {label}
-        <Icon className="ml-2 h-4 w-4" />
+        <span className="truncate">{label}</span>
+        <Icon className={cn("ml-0.5 sm:ml-1 md:ml-1.5 h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 flex-shrink-0 transition-transform", isActive && "scale-110")} />
       </Button>
     );
   }
@@ -58,31 +58,33 @@ HeaderCell.displayName = "HeaderCell";
 export const TokenTableHeader = React.memo(
   ({ sortField, sortDirection, onSort }: TokenTableHeaderProps) => {
     return (
-      <div className="grid grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_100px] sm:grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_100px] lg:grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(80px,1fr)_minmax(80px,1fr)_120px] gap-3 sm:gap-4 px-3 sm:px-4 py-2 border-b bg-muted/50 rounded-t-lg">
+      <div className="grid grid-cols-[1fr_auto_70px] md:grid-cols-[minmax(200px,2fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_100px] lg:grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(80px,1fr)_minmax(80px,1fr)_120px] gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 px-2 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-3 border-b border-border/50 bg-muted/30 backdrop-blur-sm rounded-t-lg sm:rounded-t-xl sticky top-0 z-10">
         {/* Token */}
-        <div className="flex items-center">
+        <div className="flex items-center min-w-0">
           <HeaderCell
             field="name"
             label="Token"
             sortField={sortField}
             sortDirection={sortDirection}
             onSort={onSort}
+            className="text-[10px] md:text-xs"
           />
         </div>
 
         {/* Price */}
-        <div className="flex items-center justify-start">
+        <div className="flex items-center justify-end md:justify-start min-w-0">
           <HeaderCell
             field="price"
             label="Price"
             sortField={sortField}
             sortDirection={sortDirection}
             onSort={onSort}
+            className="text-[10px] md:text-xs"
           />
         </div>
 
         {/* Volume */}
-        <div className="hidden sm:flex items-center justify-start">
+        <div className="hidden md:flex items-center justify-start min-w-0">
           <HeaderCell
             field="volume"
             label="Volume 24h"
@@ -93,7 +95,7 @@ export const TokenTableHeader = React.memo(
         </div>
 
         {/* Market Cap */}
-        <div className="hidden sm:flex items-center justify-start">
+        <div className="hidden md:flex items-center justify-start min-w-0">
           <HeaderCell
             field="marketCap"
             label="Market Cap"
@@ -138,7 +140,7 @@ export const TokenTableHeader = React.memo(
 
         {/* Actions */}
         <div className="flex items-center justify-center">
-          <span className="text-sm font-semibold text-muted-foreground">
+          <span className="text-[8px] sm:text-[9px] md:text-xs font-semibold text-muted-foreground uppercase tracking-wider truncate">
             Actions
           </span>
         </div>

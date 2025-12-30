@@ -17,12 +17,12 @@ export const PriceChange = React.memo(
     return (
       <div
         className={cn(
-          "flex items-center gap-1 font-medium transition-colors duration-300",
+          "flex items-center gap-1 font-semibold transition-colors duration-300 text-xs sm:text-sm",
           isPositive ? "text-success" : "text-destructive",
           className
         )}
       >
-        {showIcon && <Icon className="w-4 h-4" />}
+        {showIcon && <Icon className="w-3.5 h-3.5" />}
         <span>{formatPercentage(value)}</span>
       </div>
     );

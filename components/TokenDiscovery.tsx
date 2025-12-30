@@ -36,14 +36,20 @@ export function TokenDiscovery() {
   return (
     <ErrorBoundary>
       <div className="min-h-screen bg-background">
-        <div className="container mx-auto px-4 py-8 max-w-[1600px]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-[1600px]">
           {/* Header */}
-          <header className="mb-8 space-y-2">
-            <div className="flex items-center gap-3">
-              <Activity className="w-8 h-8 text-primary" />
-              <h1 className="text-3xl sm:text-4xl font-bold">Token Discovery</h1>
+          <header className="mb-8 sm:mb-10 lg:mb-12">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 rounded-lg bg-primary/10 ring-1 ring-primary/20">
+                <Activity className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
+              </div>
+              <div>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  Token Discovery
+                </h1>
+              </div>
             </div>
-            <p className="text-muted-foreground text-sm sm:text-base">
+            <p className="text-muted-foreground text-sm sm:text-base ml-[52px]">
               Real-time token trading data with live price updates
             </p>
           </header>
@@ -54,10 +60,9 @@ export function TokenDiscovery() {
           </main>
 
           {/* Footer */}
-          <footer className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-            <p>
-              Built with Next.js 14, TypeScript, Tailwind CSS, Redux Toolkit &
-              React Query
+          <footer className="mt-16 pt-8 border-t border-border/50 text-center">
+            <p className="text-xs sm:text-sm text-muted-foreground/70">
+              Built with Next.js 14, TypeScript, Tailwind CSS, Redux Toolkit & React Query
             </p>
           </footer>
         </div>
