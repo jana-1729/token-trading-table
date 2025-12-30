@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Search, X } from "lucide-react";
+import { Search, X, TrendingUp } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +11,8 @@ interface TokenFiltersProps {
   onSearchChange: (query: string) => void;
   statusFilter: TokenStatus | "all";
   onStatusFilterChange: (status: TokenStatus | "all") => void;
+  trendingFilter: boolean | null;
+  onTrendingFilterChange: (trending: boolean | null) => void;
 }
 
 const statusOptions: Array<{ value: TokenStatus | "all"; label: string }> = [
@@ -26,6 +28,8 @@ export const TokenFilters = React.memo(
     onSearchChange,
     statusFilter,
     onStatusFilterChange,
+    trendingFilter,
+    onTrendingFilterChange,
   }: TokenFiltersProps) => {
     return (
       <div className="space-y-3 sm:space-y-4 md:space-y-5">
@@ -68,6 +72,29 @@ export const TokenFilters = React.memo(
               {option.label}
             </Badge>
           ))}
+
+          {/* Trending Filter */}
+          <div className="relative inline-block group/trending">
+            {trendingFilter === true && (
+              <>
+                <div className="absolute -inset-[2px] rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 opacity-100 animate-gradient-rotate" />
+                <div className="absolute -inset-[2px] rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 opacity-50 blur-sm animate-gradient-rotate" />
+              </>
+            )}
+            <Badge
+              variant={trendingFilter === true ? "default" : "outline"}
+              className={cn(
+                "relative cursor-pointer transition-all duration-200 hover:scale-[1.02] active:scale-95 px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium whitespace-nowrap flex items-center gap-1",
+                trendingFilter === true
+                  ? "bg-background text-foreground hover:bg-background/95 border-transparent"
+                  : "hover:bg-accent hover:text-accent-foreground"
+              )}
+              onClick={() => onTrendingFilterChange(trendingFilter === true ? null : true)}
+            >
+              <TrendingUp className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span>Trending</span>
+            </Badge>
+          </div>
         </div>
       </div>
     );

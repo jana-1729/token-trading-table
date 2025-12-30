@@ -9,7 +9,7 @@ import { TokenDetailsDialog } from "./TokenDetailsDialog";
 import { TokenFilters } from "./TokenFilters";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { setSortState } from "@/store/slices/tokensSlice";
-import { setSearchQuery, setStatusFilter } from "@/store/slices/filtersSlice";
+import { setSearchQuery, setStatusFilter, setTrendingFilter } from "@/store/slices/filtersSlice";
 import type { Token, SortField } from "@/types/token";
 import { AlertCircle } from "lucide-react";
 
@@ -40,6 +40,11 @@ export const TokenTable = React.memo(() => {
     return tokens.filter((token) => {
       // Status filter
       if (filters.status !== "all" && token.status !== filters.status) {
+        return false;
+      }
+
+      // Trending filter
+      if (filters.trending === true && !token.trending) {
         return false;
       }
 
@@ -165,6 +170,8 @@ export const TokenTable = React.memo(() => {
         onSearchChange={(query) => dispatch(setSearchQuery(query))}
         statusFilter={filters.status}
         onStatusFilterChange={(status) => dispatch(setStatusFilter(status))}
+        trendingFilter={filters.trending}
+        onTrendingFilterChange={(trending) => dispatch(setTrendingFilter(trending))}
       />
 
       {/* Table Container */}
