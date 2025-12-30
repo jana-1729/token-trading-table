@@ -40,11 +40,11 @@ export function TokenDiscovery() {
           {/* Header */}
           <header className="mb-8 sm:mb-10 lg:mb-12">
             <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 rounded-lg bg-primary/10 ring-1 ring-primary/20">
-                <Activity className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
+              <div className="p-2 rounded-lg bg-foreground/5 ring-1 ring-foreground/10">
+                <Activity className="w-6 h-6 sm:w-7 sm:h-7 text-foreground" />
               </div>
               <div>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
                   Token Discovery
                 </h1>
               </div>

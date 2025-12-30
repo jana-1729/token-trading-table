@@ -41,8 +41,8 @@ const HeaderCell = React.memo(
         size="sm"
         onClick={() => onSort(field)}
         className={cn(
-          "h-auto p-1 sm:p-1.5 md:p-2 hover:bg-accent/50 font-semibold text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider transition-all",
-          isActive && "text-primary bg-primary/5",
+          "h-auto p-1 sm:p-1.5 md:p-2 hover:bg-accent font-semibold text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider transition-all",
+          isActive && "text-foreground bg-accent",
           className
         )}
       >
@@ -58,7 +58,7 @@ HeaderCell.displayName = "HeaderCell";
 export const TokenTableHeader = React.memo(
   ({ sortField, sortDirection, onSort }: TokenTableHeaderProps) => {
     return (
-      <div className="grid grid-cols-[1fr_auto_70px] md:grid-cols-[minmax(200px,2fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_100px] lg:grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(80px,1fr)_minmax(80px,1fr)_120px] gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 px-2 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-3 border-b border-border/50 bg-muted/30 backdrop-blur-sm rounded-t-lg sm:rounded-t-xl sticky top-0 z-10">
+      <div className="grid grid-cols-[1fr_auto_70px] md:grid-cols-[minmax(200px,2fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_100px] lg:grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(80px,1fr)_minmax(80px,1fr)_120px] gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 px-2 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-3 border-b border-border bg-card/50 backdrop-blur-sm rounded-t-lg sm:rounded-t-xl sticky top-0 z-10">
         {/* Token */}
         <div className="flex items-center min-w-0">
           <HeaderCell

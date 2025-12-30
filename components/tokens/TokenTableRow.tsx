@@ -42,8 +42,8 @@ export const TokenTableRow = React.memo(
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         className={cn(
-          "grid grid-cols-[1fr_auto_70px] md:grid-cols-[minmax(200px,2fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_100px] lg:grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(80px,1fr)_minmax(80px,1fr)_120px] gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 p-2 sm:p-3 md:p-4 lg:p-5 rounded-lg sm:rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card hover:border-border hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group",
-          priceChanged && (priceIncreased ? "bg-success/10 border-success/20" : "bg-destructive/10 border-destructive/20")
+          "grid grid-cols-[1fr_auto_70px] md:grid-cols-[minmax(200px,2fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_100px] lg:grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(80px,1fr)_minmax(80px,1fr)_120px] gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 p-2 sm:p-3 md:p-4 lg:p-5 rounded-lg sm:rounded-xl border border-border bg-card hover:bg-accent/50 hover:border-foreground/10 transition-all duration-300 group",
+          priceChanged && (priceIncreased ? "bg-success/5 border-success/20" : "bg-destructive/5 border-destructive/20")
         )}
       >
         {/* Token Info */}
@@ -53,7 +53,7 @@ export const TokenTableRow = React.memo(
           </div>
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-1 md:gap-2 mb-0.5">
-              <h3 className="font-semibold truncate text-[11px] sm:text-xs md:text-sm lg:text-base group-hover:text-primary transition-colors leading-tight">
+              <h3 className="font-semibold truncate text-[11px] sm:text-xs md:text-sm lg:text-base group-hover:text-foreground transition-colors leading-tight">
                 {token.name}
               </h3>
               <TokenBadge
@@ -128,7 +128,7 @@ export const TokenTableRow = React.memo(
                 variant="ghost"
                 size="icon"
                 onClick={() => onViewDetails(token)}
-                className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 hover:bg-primary/10 hover:text-primary transition-all opacity-60 group-hover:opacity-100 p-0"
+                className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 hover:bg-accent hover:text-foreground transition-all opacity-60 group-hover:opacity-100 p-0"
               >
                 <Info className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" />
               </Button>

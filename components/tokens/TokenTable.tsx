@@ -168,7 +168,7 @@ export const TokenTable = React.memo(() => {
       />
 
       {/* Table Container */}
-      <div className="rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm overflow-hidden shadow-xl shadow-black/5">
+      <div className="rounded-xl border border-border bg-card overflow-hidden">
         <TokenTableHeader
           sortField={sortState.field}
           sortDirection={sortState.direction}
