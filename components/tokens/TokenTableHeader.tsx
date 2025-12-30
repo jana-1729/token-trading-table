@@ -60,26 +60,26 @@ export const TokenTableHeader = React.memo(
     return (
       <div className="grid grid-cols-[1fr_auto_70px] md:grid-cols-[minmax(200px,2fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_100px] lg:grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(80px,1fr)_minmax(80px,1fr)_120px] gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 px-2 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-3 border-b border-border bg-card/50 backdrop-blur-sm rounded-t-lg sm:rounded-t-xl sticky top-0 z-10">
         {/* Token */}
-        <div className="flex items-center min-w-0">
+        <div className="flex items-center justify-start min-w-0">
           <HeaderCell
             field="name"
             label="Token"
             sortField={sortField}
             sortDirection={sortDirection}
             onSort={onSort}
-            className="text-[10px] md:text-xs"
+            className="text-[10px] md:text-xs justify-start"
           />
         </div>
 
         {/* Price */}
-        <div className="flex items-center justify-end md:justify-start min-w-0">
+        <div className="flex items-center justify-start min-w-0">
           <HeaderCell
             field="price"
             label="Price"
             sortField={sortField}
             sortDirection={sortDirection}
             onSort={onSort}
-            className="text-[10px] md:text-xs"
+            className="text-[10px] md:text-xs justify-start"
           />
         </div>
 
@@ -91,6 +91,7 @@ export const TokenTableHeader = React.memo(
             sortField={sortField}
             sortDirection={sortDirection}
             onSort={onSort}
+            className="justify-start"
           />
         </div>
 
@@ -102,44 +103,48 @@ export const TokenTableHeader = React.memo(
             sortField={sortField}
             sortDirection={sortDirection}
             onSort={onSort}
+            className="justify-start"
           />
         </div>
 
         {/* Liquidity */}
-        <div className="hidden lg:flex items-center justify-start">
+        <div className="hidden lg:flex items-center justify-start min-w-0">
           <HeaderCell
             field="liquidity"
             label="Liquidity"
             sortField={sortField}
             sortDirection={sortDirection}
             onSort={onSort}
+            className="justify-start"
           />
         </div>
 
         {/* Holders */}
-        <div className="hidden lg:flex items-center justify-start">
+        <div className="hidden lg:flex items-center justify-start min-w-0">
           <HeaderCell
             field="holders"
             label="Holders"
             sortField={sortField}
             sortDirection={sortDirection}
             onSort={onSort}
+            className="justify-start"
           />
         </div>
 
         {/* Age */}
-        <div className="hidden lg:flex items-center justify-start">
+        <div className="hidden lg:flex items-center justify-start min-w-0">
           <HeaderCell
             field="age"
             label="Age"
             sortField={sortField}
             sortDirection={sortDirection}
             onSort={onSort}
+            className="justify-start"
           />
         </div>
 
         {/* Actions */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-end">
           <span className="text-[8px] sm:text-[9px] md:text-xs font-semibold text-muted-foreground uppercase tracking-wider truncate">
             Actions
           </span>

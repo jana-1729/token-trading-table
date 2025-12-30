@@ -70,7 +70,7 @@ export const TokenTableRow = React.memo(
         </div>
 
         {/* Price - Always visible */}
-        <div className="flex flex-col justify-center min-w-0 text-right md:text-left">
+        <div className="flex flex-col justify-center items-start min-w-0">
           <motion.p
             key={token.price}
             initial={priceChanged ? { scale: 1.15 } : false}
@@ -80,35 +80,35 @@ export const TokenTableRow = React.memo(
           >
             {formatCurrency(token.price)}
           </motion.p>
-          <PriceChange value={token.change24h} showIcon={false} className="justify-end md:justify-start text-[9px] sm:text-xs" />
+          <PriceChange value={token.change24h} showIcon={false} className="justify-start text-[9px] sm:text-xs" />
         </div>
 
         {/* Volume - Hidden on mobile */}
-        <div className="hidden md:flex flex-col justify-center min-w-0">
+        <div className="hidden md:flex flex-col justify-center items-start min-w-0">
           <p className="text-xs text-muted-foreground mb-0.5">Volume</p>
           <p className="font-semibold truncate text-sm">${formatCompactNumber(token.volume24h)}</p>
         </div>
 
         {/* Market Cap - Hidden on mobile */}
-        <div className="hidden md:flex flex-col justify-center min-w-0">
+        <div className="hidden md:flex flex-col justify-center items-start min-w-0">
           <p className="text-xs text-muted-foreground mb-0.5">Market Cap</p>
           <p className="font-semibold truncate text-sm">${formatCompactNumber(token.marketCap)}</p>
         </div>
 
         {/* Liquidity - Hidden on tablet and below */}
-        <div className="hidden lg:flex flex-col justify-center min-w-0">
+        <div className="hidden lg:flex flex-col justify-center items-start min-w-0">
           <p className="text-xs text-muted-foreground mb-0.5">Liquidity</p>
           <p className="font-semibold truncate text-sm">${formatCompactNumber(token.liquidity)}</p>
         </div>
 
         {/* Holders - Hidden on tablet and below */}
-        <div className="hidden lg:flex flex-col justify-center min-w-0">
+        <div className="hidden lg:flex flex-col justify-center items-start min-w-0">
           <p className="text-xs text-muted-foreground mb-0.5">Holders</p>
           <p className="font-semibold truncate text-sm">{formatCompactNumber(token.holders)}</p>
         </div>
 
         {/* Age - Hidden on tablet and below */}
-        <div className="hidden lg:flex flex-col justify-center min-w-0">
+        <div className="hidden lg:flex flex-col justify-center items-start min-w-0">
           <Tooltip>
             <TooltipTrigger asChild>
               <p className="text-xs text-muted-foreground cursor-help mb-0.5">Age</p>
