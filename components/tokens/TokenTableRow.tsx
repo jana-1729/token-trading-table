@@ -42,14 +42,14 @@ export const TokenTableRow = React.memo(
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         className={cn(
-          "grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto_auto_auto] lg:grid-cols-[auto_1fr_auto_auto_auto_auto_auto_auto] gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg border bg-card hover:bg-accent/50 transition-all duration-200",
+          "grid grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_100px] sm:grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_100px] lg:grid-cols-[minmax(200px,2fr)_minmax(120px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(100px,1fr)_minmax(80px,1fr)_minmax(80px,1fr)_120px] gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg border bg-card hover:bg-accent/50 transition-all duration-200",
           priceChanged && (priceIncreased ? "bg-success/5" : "bg-destructive/5")
         )}
       >
         {/* Token Info */}
         <div className="flex items-center gap-3 min-w-0">
           <TokenLogo src={token.logo} alt={token.symbol} />
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
               <h3 className="font-semibold truncate">{token.name}</h3>
               <TokenBadge
@@ -79,31 +79,31 @@ export const TokenTableRow = React.memo(
         </div>
 
         {/* Volume - Hidden on mobile */}
-        <div className="hidden sm:flex flex-col justify-center">
+        <div className="hidden sm:flex flex-col justify-center min-w-0">
           <p className="text-sm text-muted-foreground">Volume</p>
-          <p className="font-medium">${formatCompactNumber(token.volume24h)}</p>
+          <p className="font-medium truncate">${formatCompactNumber(token.volume24h)}</p>
         </div>
 
         {/* Market Cap - Hidden on mobile */}
-        <div className="hidden sm:flex flex-col justify-center">
+        <div className="hidden sm:flex flex-col justify-center min-w-0">
           <p className="text-sm text-muted-foreground">Market Cap</p>
-          <p className="font-medium">${formatCompactNumber(token.marketCap)}</p>
+          <p className="font-medium truncate">${formatCompactNumber(token.marketCap)}</p>
         </div>
 
         {/* Liquidity - Hidden on tablet and below */}
-        <div className="hidden lg:flex flex-col justify-center">
+        <div className="hidden lg:flex flex-col justify-center min-w-0">
           <p className="text-sm text-muted-foreground">Liquidity</p>
-          <p className="font-medium">${formatCompactNumber(token.liquidity)}</p>
+          <p className="font-medium truncate">${formatCompactNumber(token.liquidity)}</p>
         </div>
 
         {/* Holders - Hidden on tablet and below */}
-        <div className="hidden lg:flex flex-col justify-center">
+        <div className="hidden lg:flex flex-col justify-center min-w-0">
           <p className="text-sm text-muted-foreground">Holders</p>
-          <p className="font-medium">{formatCompactNumber(token.holders)}</p>
+          <p className="font-medium truncate">{formatCompactNumber(token.holders)}</p>
         </div>
 
         {/* Age - Hidden on tablet and below */}
-        <div className="hidden lg:flex flex-col justify-center">
+        <div className="hidden lg:flex flex-col justify-center min-w-0">
           <Tooltip>
             <TooltipTrigger asChild>
               <p className="text-sm text-muted-foreground cursor-help">Age</p>
@@ -112,11 +112,11 @@ export const TokenTableRow = React.memo(
               <p>Token creation time</p>
             </TooltipContent>
           </Tooltip>
-          <p className="font-medium">{formatTimeAgo(token.age)}</p>
+          <p className="font-medium truncate">{formatTimeAgo(token.age)}</p>
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
